@@ -1,6 +1,6 @@
 pkgbase = nordvpn-bin
 	pkgdesc = NordVPN client and daemon for Linux (binary release)
-	pkgver = 1.0
+	pkgver = 6.1.0
 	pkgrel = 1
 	url = https://nordvpn.com/download/linux/
 	install = nordvpn-bin.install

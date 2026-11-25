@@ -2,7 +2,7 @@
 
 pkgname=nordvpn-bin
 _pkgname=nordvpn
-pkgver=1.0
+pkgver=6.1.0
 pkgrel=1
 pkgdesc='NordVPN client and daemon for Linux (binary release)'
 arch=(x86_64 aarch64)
