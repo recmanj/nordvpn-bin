@@ -1,0 +1,11 @@
+*
+!.gitignore
+!.SRCINFO
+!README.md
+!PKGBUILD
+!nordvpn-bin.install
+!keys/
+!keys/pgp/
+!keys/pgp/*.asc
+!.github/
+!.github/**

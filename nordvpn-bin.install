@@ -1,0 +1,22 @@
+post_install() {
+	cat <<-'EOF'
+	==> To start the daemon now and at boot:
+	      sudo systemctl enable --now nordvpnd.socket nordvpnd.service
+	==> Members of the 'nordvpn' group can control the daemon:
+	      sudo usermod -aG nordvpn "$USER"
+	    then log out and back in, and run 'nordvpn login'.
+	EOF
+}
+
+post_upgrade() {
+	if [ -d /run/systemd/system ] && systemctl -q is-active nordvpnd.service 2> /dev/null; then
+		echo '==> Restart the daemon to use the new version: sudo systemctl restart nordvpnd.service'
+	fi
+}
+
+pre_remove() {
+	# Don't leave the daemon (and its firewall rules) running without its files
+	if [ -d /run/systemd/system ]; then
+		systemctl --quiet disable --now nordvpnd.service nordvpnd.socket 2> /dev/null || :
+	fi
+}
